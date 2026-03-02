@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naman Singh | Content Creator & Earning Guide</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --bg-color: #0a0a0a;
+            --card-bg: #161616;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent: #00ff9d; /* Money Green */
+            --accent-glow: rgba(0, 255, 157, 0.3);
+            --insta-color: #E1306C;
+            --tele-color: #0088cc;
+            --font-main: 'Poppins', sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        /* --- GLOBAL RESET --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- LAYOUT UTILITIES --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .section-title span {
+            color: var(--accent);
+            position: relative;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 70px; /* Offset for fixed nav */
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 70%);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .hero-content h2 {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #000;
+        }
+        
+        .btn-primary:hover {
+            background-color: #fff;
+            box-shadow: 0 0 20px var(--accent-glow);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-outline:hover {
+            background: rgba(0, 255, 157, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            text-align: center;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        /* --- WHAT I DO (Cards) --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #222;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- SKILLS --- */
+        .skills-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .skill-tag {
+            background: #222;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 1rem;
+            color: var(--text-color);
+            border: 1px solid #333;
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* --- SOCIAL LINKS (Important Section) --- */
+        .social-buttons-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .social-btn {
+            width: 100%;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: var(--transition);
+            color: white;
+        }
+
+        .btn-insta {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .btn-insta:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+            box-shadow: 0 5px 20px rgba(220, 39, 67, 0.4);
+        }
+
+        .btn-tele {
+            background-color: var(--tele-color);
+        }
+
+        .btn-tele:hover {
+            background-color: #0077b5;
+            transform: scale(1.02);
+            box-shadow: 0 5px 20px rgba(0, 136, 204, 0.4);
+        }
+
+        /* --- CONTACT --- */
+        .contact-box {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid #222;
+        }
+
+        .contact-box h3 {
+            margin-bottom: 20px;
+        }
+        
+        .contact-email {
+            color: var(--accent);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #222;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                right: 0;
+                top: 70px;
+                background: #111;
+                height: calc(100vh - 70px);
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+                transform: translateX(100%);
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">NAMAN.</a>
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+                <li><a href="#about" onclick="toggleMenu()">About</a></li>
+                <li><a href="#what-i-do" onclick="toggleMenu()">What I Do</a></li>
+                <li><a href="#community" onclick="toggleMenu()">Community</a></li>
+                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>Hi, I'm Naman Singh</h1>
+            <h2>Content Creator & Online Earning Guide</h2>
+            <p>"Helping people discover earning apps, cashback deals & online opportunities 💸"</p>
+            <div class="cta-group">
+                <a href="#community" class="btn btn-primary">Start Earning</a>
+                <a href="#what-i-do" class="btn btn-outline">My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About <span>Me</span></h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        Welcome! I am a passionate content creator dedicated to sharing viral reels and authentic information about the digital economy.
+                    </p>
+                    <p>
+                        My mission is to cut through the noise and help people earn money online in simple, smart, and legitimate ways. Whether it's reviewing trusted apps, finding the best cashback offers, or uncovering hidden money-making opportunities, I'm here to guide you.
+                    </p>
+                    <p style="color: white; font-weight: 600;">Based in India 🇮🇳</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="what-i-do">
+        <div class="container">
+            <h2 class="section-title">What <span>I Do</span></h2>
+            <div class="services-grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fab fa-instagram"></i></div>
+                    <h3>Viral Reels Content</h3>
+                    <p>Creating engaging short-form content that educates and entertains.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>App Reviews</h3>
+                    <p>Honest reviews of earning apps to keep you safe and profitable.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-tags"></i></div>
+                    <h3>Cashback & Deals</h3>
+                    <p>Providing the latest promo codes and cashback offers to save you money.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Earning Tricks</h3>
+                    <p>Sharing smart strategies and legitimate tricks to maximize online income.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-bell"></i></div>
+                    <h3>New Updates</h3>
+                    <p>Instant updates about new money-making opportunities in the market.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">My <span>Skills</span></h2>
+            <div class="skills-wrapper">
+                <div class="skill-tag">Social Media Growth 🚀</div>
+                <div class="skill-tag">Content Research 🔍</div>
+                <div class="skill-tag">App Reviewing 📱</div>
+                <div class="skill-tag">Online Earning Strategies 💰</div>
+                <div class="skill-tag">Video Editing 🎥</div>
+                <div class="skill-tag">Community Management 🤝</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="community">
+        <div class="container">
+            <h2 class="section-title">Join the <span>Community</span></h2>
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 40px;">
+                Don't miss out on daily deals and earning tips. Follow me below!
+            </p>
+            <div class="social-buttons-container">
+                <a href="https://www.instagram.com/naman_singh6556" target="_blank" class="social-btn btn-insta">
+                    <i class="fab fa-instagram"></i> Follow on Instagram
+                </a>
+                <a href="https://t.me/elitemindsetvault" target="_blank" class="social-btn btn-tele">
+                    <i class="fab fa-telegram-plane"></i> Join Telegram Channel
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get in <span>Touch</span></h2>
+            <div class="contact-box">
+                <h3>Have a brand collaboration or query?</h3>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">
+                    Reach out to me via Instagram DM or email below.
+                </p>
+                <a href="mailto:contact@namansingh.com" class="contact-email">
+                    <i class="fas fa-envelope"></i> DM on Instagram for Collabs
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Naman Singh. All Rights Reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">Helping India Earn Online.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const hamburger = document.querySelector('.hamburger i');
+            
+            navLinks.classList.toggle('active');
+            
+            // Toggle icon between bars and times (X)
+            if (navLinks.classList.contains('active')) {
+                hamburger.classList.remove('fa-bars');
+                hamburger.classList.add('fa-times');
+            } else {
+                hamburger.classList.remove('fa-times');
+                hamburger.classList.add('fa-bars');
+            }
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navLinks = document.querySelector('.nav-links');
+            const hamburger = document.querySelector('.hamburger');
+            
+            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+    </script>
+</body>
+  </html>
