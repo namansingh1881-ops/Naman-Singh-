@@ -16,8 +16,8 @@
             --card-bg: #161616;
             --text-color: #e0e0e0;
             --text-muted: #a0a0a0;
-            --accent: #00ff9d; /* Money Green */
-            --accent-glow: rgba(0, 255, 157, 0.3);
+            --accent: #00bfff;
+            --accent-glow: rgba(0,191,255,0.4);
             --insta-color: #E1306C;
             --tele-color: #0088cc;
             --font-main: 'Poppins', sans-serif;
@@ -112,75 +112,93 @@
             font-size: 1.5rem;
         }
 
-        /* --- HERO SECTION --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding-top: 70px; /* Offset for fixed nav */
-            background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 70%);
-        }
+       /* --- NEW 3D HERO SECTION --- */
 
-        .hero-content h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #050816, #0f172a);
+}
 
-        .hero-content h2 {
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-bottom: 20px;
-            font-weight: 400;
-        }
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0,191,255,0.4), transparent 70%);
+    animation: float 6s ease-in-out infinite;
+}
 
-        .hero-content p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 40px auto;
-        }
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-30px); }
+    100% { transform: translateY(0px); }
+}
 
-        .cta-group {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+.hero-content {
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 1.5s ease forwards;
+}
 
-        .btn {
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-        .btn-primary {
-            background-color: var(--accent);
-            color: #000;
-        }
+.hero-content h1 {
+    font-size: 3rem;
+    background: linear-gradient(90deg, #00bfff, #1e90ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-content h2 {
+    color: #00bfff;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    color: #94a3b8;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+/* Buttons */
+
+.btn {
+    padding: 14px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #00bfff, #1e90ff);
+    color: white;
+    box-shadow: 0 10px 30px rgba(0,191,255,0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,191,255,0.6);
+}
+
+.btn-outline {
+    border: 2px solid #00bfff;
+    color: #00bfff;
+}
+
+.btn-outline:hover {
+    background: rgba(0,191,255,0.1);
+    transform: translateY(-5px);
+}
         
-        .btn-primary:hover {
-            background-color: #fff;
-            box-shadow: 0 0 20px var(--accent-glow);
-            transform: translateY(-3px);
-        }
-
-        .btn-outline {
-            border: 2px solid var(--accent);
-            color: var(--accent);
-        }
-
-        .btn-outline:hover {
-            background: rgba(0, 255, 157, 0.1);
-            transform: translateY(-3px);
-        }
-
         /* --- ABOUT SECTION --- */
         .about-grid {
             display: grid;
@@ -385,15 +403,17 @@
     </nav>
 
     <section id="home" class="hero">
-        <div class="container hero-content">
-            <h1>Hi, I'm Naman Singh</h1>
-            <h2>Content Creator & Online Earning Guide</h2>
-            <p>"Helping people discover earning apps, cashback deals & online opportunities 💸"</p>
-            <div class="cta-group">
-                <a href="#community" class="btn btn-primary">Start Earning</a>
-                <a href="#what-i-do" class="btn btn-outline">My Work</a>
-            </div>
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+        <h1>Hi, I'm Naman Singh</h1>
+        <h2>Content Creator & Online Earning Guide</h2>
+        <p>Helping people discover earning apps & online opportunities 💙</p>
+
+        <div class="cta-group">
+            <a href="#community" class="btn btn-primary">Start Earning</a>
+            <a href="#what-i-do" class="btn btn-outline">My Work</a>
         </div>
+    </div>
     </section>
 
     <section id="about">
